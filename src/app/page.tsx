@@ -15,7 +15,7 @@ interface ProductItem {
   };
 }
 
-const INITIAL_PRODUCTS: ProductItem[] = [{"id":"08937cdc-3d99-4d4b-87d9-b5ac58d57b85","tenantId":"8d22adaa-8ba7-4ff3-a111-3a7b1fd441c8","title":"Heavyweight Oversized Boxy Hoodie","price":135,"status":"ACTIVE","customFields":{"badge":"Limited Edition","features":[],"imageUrl":"https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&q=80","description":"500 GSM French terry cotton with drop-shoulder silhouette and double-layered hood.","category":"Outerwear","stock":45},"createdAt":null},{"id":"842c7625-f116-49be-bd2b-252873d36a94","tenantId":"8d22adaa-8ba7-4ff3-a111-3a7b1fd441c8","title":"Monochrome Tailored Wool Trousers","price":165,"status":"ACTIVE","customFields":{"badge":"New Silhouette","features":[],"imageUrl":"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80","description":"Relaxed wide-leg drape crafted from premium Italian virgin wool blend.","category":"Pants","stock":30},"createdAt":null},{"id":"071782f7-64e6-4986-aa74-4dbedfe574a6","tenantId":"8d22adaa-8ba7-4ff3-a111-3a7b1fd441c8","title":"Minimalist Leather Crossbody Tote","price":210,"status":"ACTIVE","customFields":{"badge":"Artisan Leather","features":[],"imageUrl":"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&q=80","description":"Vegetable-tanned full-grain leather with magnetic snap closure and brass accents.","category":"Accessories","stock":25},"createdAt":null}];
+const INITIAL_PRODUCTS: ProductItem[] = [];
 
 export default function SingleFileTenantStore() {
   const [products] = useState<ProductItem[]>(INITIAL_PRODUCTS);
