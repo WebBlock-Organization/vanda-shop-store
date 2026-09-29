@@ -1,0 +1,30 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  title        String   @db.VarChar(255)
+  price        Decimal  @default(0.00) @db.Decimal(12, 2)
+  status       String?  @default("ACTIVE") @db.VarChar(50)
+  customFields Json?    @default("{}") @map("custom_fields")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("products")
+}
+
+model SiteSetting {
+  id                  String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId            String   @unique @map("tenant_id") @db.Uuid
+  themeConfig         Json?    @default("{}") @map("theme_config")
+  allowedCustomFields Json?    @default("[]") @map("allowed_custom_fields")
+  updatedAt           DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("site_settings")
+}
